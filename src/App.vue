@@ -1,13 +1,7 @@
 <template>
-  <div>
-    <button v-on:click="increaseCount">Increase count</button>
-    <button v-on:click="decreaseCount">Decrease count</button>
-    <div>
-      Amount of counts: <strong>{{ counts }}</strong>
-    </div>
-    <div>
-      Amount of numbers: <strong>{{ numbers }}</strong>
-    </div>
+  <div class="post" v-for="post in posts">
+    <div><strong>Назва:</strong>{{ post.title }}</div>
+    <div><strong>Опис:</strong>{{ post.body }}</div>
   </div>
 </template>
 
@@ -15,19 +9,27 @@
 export default {
   data() {
     return {
-      counts: 5,
-      numbers: 10,
+      posts: [
+        { id: 1, title: "JS", body: "11111111111" },
+        { id: 2, title: "JS-2", body: "22222222" },
+        { id: 3, title: "JS-3", body: "3333333333333333" },
+        { id: 3, title: "JS-4", body: "444444444444" },
+      ],
     };
   },
-  methods: {
-    increaseCount() {
-      this.counts += 1;
-    },
-    decreaseCount() {
-      this.counts -= 1;
-    },
-  },
+  methods: {},
 };
 </script>
 
-<style></style>
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.post {
+  padding: 15px;
+  border: 1px solid teal;
+  margin-bottom: 12px;
+}
+</style>
