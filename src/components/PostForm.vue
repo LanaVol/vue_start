@@ -3,19 +3,17 @@
       <h3>Add posts data</h3>
       <input 
         class="input" 
-        v-bind:value="post.title"
-        @input="post.title = $event.target.value"
+        v-model="post.title"
         type="text" 
         placeholder="Name"
       >
       <input 
         class="input" 
-        v-bind:value="post.body"
-        @input="post.body = $event.target.value" 
+        v-model="post.body"
         type="text" 
         placeholder="Description"
       >
-      <button class="btn">Add</button>
+      <button class="btn" @click="createPost">Add</button>
     </form>
 </template>
 
@@ -24,6 +22,16 @@
     data() {
       return {
         post: {
+          title: '',
+          body: ''
+        }
+      }
+    },
+    methods: {
+      createPost() {
+        this.post.id = Date.now();
+        this.$emit('create', this.post);
+        this.post = {
           title: '',
           body: ''
         }

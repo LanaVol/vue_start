@@ -1,7 +1,11 @@
 <template>
   <div class="app">
-    <PostForm/>
-    <PostList :posts="posts"/>
+    <PostForm
+      @create="createPost"
+    />
+    <PostList 
+      :posts="posts"
+    />
   </div>
 </template>
 
@@ -21,20 +25,11 @@
           { id: 3, title: "JS-3", body: "3333333333333333" },
           { id: 3, title: "JS-4", body: "444444444444" },
         ],
-        title: '',
-        body: ''
       };
     },
     methods: {
-      createPost() {
-        const newPost = {
-          id: Date().now,
-          title: this.title,
-          body: this.body
-        }
-        this.posts.push(newPost);
-        this.title = '';
-        this.body = '';
+      createPost(post) {
+        this.posts.push(post);
       },
     },
   };
