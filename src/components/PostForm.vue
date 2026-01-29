@@ -13,12 +13,22 @@
         type="text" 
         placeholder="Description"
       >
-      <button class="btn" @click="createPost">Add</button>
+      <Button 
+        style="margin-top: 15px; align-self: flex-end;"
+        @click="createPost"
+      >
+        Add
+      </Button>
     </form>
 </template>
 
 <script>
+import Button from '@/components/UI/Button.vue';
+
 	export default {
+    components: {
+      Button
+    },
     data() {
       return {
         post: {
@@ -51,14 +61,5 @@
     border: 1px solid teal;
     margin-top: 8px;
     padding: 4px;
-  }
-  .btn {
-    margin-top: 15px;
-    align-self: flex-end;
-    padding: 10px 15px;
-    border-radius: 4px;
-    color: teal;
-    background: none;
-    border: 2px solid teal;
   }
 </style>
