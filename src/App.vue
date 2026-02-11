@@ -5,6 +5,7 @@
     />
     <PostList 
       :posts="posts"
+      @remove="removePost"
     />
   </div>
 </template>
@@ -23,7 +24,7 @@
           { id: 1, title: "JS", body: "11111111111" },
           { id: 2, title: "JS-2", body: "22222222" },
           { id: 3, title: "JS-3", body: "3333333333333333" },
-          { id: 3, title: "JS-4", body: "444444444444" },
+          { id: 4, title: "JS-4", body: "444444444444" },
         ],
       };
     },
@@ -31,6 +32,9 @@
       createPost(post) {
         this.posts.push(post);
       },
+      removePost(post) {
+        this.posts = this.posts.filter(p => p.id !== post.id)
+      }
     },
   };
 </script>
