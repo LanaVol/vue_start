@@ -5,18 +5,13 @@
       <div><strong>Description:</strong>{{ post.body }}</div>
     </div>
     <div class="post__btns">
-      <Button class="delete">Delete</Button>
+      <base-button class="delete">Delete</base-button>
     </div>
 	</div>
 </template>
 
 <script>
-import Button from './UI/Button.vue';
-
   export default {
-    components: {
-      Button
-    },
     props: {
       post: {
         type: Object,
