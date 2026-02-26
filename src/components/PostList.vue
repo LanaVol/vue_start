@@ -5,26 +5,25 @@
       v-for="post in posts"
       :post="post"
       :key="post.id"
-      @remove="$emit('remove', post)"
+      @remove="emit('remove', post)"
     />
   </div>
   <h2 v-else style="color: red;">Posts list is empty</h2>
 </template>
 
-<script>
-  import PostItem from '@/components/PostItem.vue';
+<script setup>
+import PostItem from '@/components/PostItem.vue';
 
-	export default {
-    components: {
-      PostItem
-    },
-    props: {
-      posts: {
-        type: Array,
-        required: true
-      }
-    }
-	}
+//props
+const props = defineProps({
+  posts: {
+    type: Array,
+    required: true
+  }
+})
+
+//events
+const emit = defineEmits(['remove']);
 </script>
 
 <style scoped>

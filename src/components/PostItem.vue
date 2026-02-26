@@ -5,20 +5,22 @@
       <div><strong>Description:</strong>{{ post.body }}</div>
     </div>
     <div class="post__btns">
-      <base-button class="delete" @click="$emit('remove', post)">Delete</base-button>
+      <base-button class="delete" @click="emit('remove', post)">Delete</base-button>
     </div>
 	</div>
 </template>
 
-<script>
-  export default {
-    props: {
-      post: {
-        type: Object,
-        required: true
-      }
-    }
+<script setup>
+//props
+const props = defineProps({
+  post: {
+    type: Object,
+    required: true
   }
+});
+
+//events
+const emit = defineEmits(['remove']);
 </script>
 
 <style scoped>

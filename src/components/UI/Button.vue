@@ -4,10 +4,10 @@
   </button>
 </template>
 
-<script>
-  export default {
-    name: 'base-button'
-  }
+<script setup>
+defineOptions({
+  name: 'base-button'
+})
 </script>
 
 <style scoped>

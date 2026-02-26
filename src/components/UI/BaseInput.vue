@@ -1,19 +1,32 @@
 <template>
-  <input :value="modelValue" @input="updateInput" type="text" class="input">
+  <input 
+    :value="modelValue" 
+    @input="updateInput" 
+    type="text" 
+    class="input"
+  >
 </template>
 
-<script>
-  export default {
-    name: 'base-input',
-    props: {
-      modelValue: [String, Number]
-    },
-    methods: {
-      updateInput(event) {
-        this.$emit('update:modelValue', event.target.value)
-      }
-    }
+<script setup>
+//options
+defineOptions({
+  name: 'base-input'
+});
+
+//props
+const props = defineProps({
+  modelValue: {
+    type: [String, Number],
+    default: ''
   }
+});
+
+const emit = defineEmits(['update:modelValue'])
+
+//methods
+const updateInput = (event) => {
+  emit('update:modelValue', event.target.value)
+}
 </script>
 
 <style scoped>

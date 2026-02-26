@@ -20,27 +20,27 @@
     </form>
 </template>
 
-<script>
-	export default {
-    data() {
-      return {
-        post: {
-          title: '',
-          body: ''
-        }
-      }
-    },
-    methods: {
-      createPost() {
-        this.post.id = Date.now();
-        this.$emit('create', this.post);
-        this.post = {
-          title: '',
-          body: ''
-        }
-      }
+<script setup>
+import { ref } from 'vue';
+
+  //state
+  const post = ref({
+    title: '',
+    body: ''
+  });
+
+  //events
+  const emit = defineEmits(['create']);
+
+  //methods
+  const createPost = () => {
+    post.value.id = Date.now();
+    emit('create', post.value);
+    post.value = {
+      title: '',
+      body: ''
     }
-	}
+  }
 </script>
 
 <style scoped>
