@@ -6,6 +6,7 @@
       :post="post"
       :key="post.id"
       @remove="emit('remove', post)"
+      @edit="emit('edit', post)"
     />
   </div>
   <h2 v-else style="color: red;">Posts list is empty</h2>
@@ -23,7 +24,7 @@ const props = defineProps({
 })
 
 //events
-const emit = defineEmits(['remove']);
+const emit = defineEmits(['remove', 'edit']);
 </script>
 
 <style scoped>

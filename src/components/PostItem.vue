@@ -5,6 +5,7 @@
       <div><strong>Description:</strong>{{ post.body }}</div>
     </div>
     <div class="post__btns">
+      <base-button class="edit" @click="emit('edit', post)">Edit</base-button>
       <base-button class="delete" @click="emit('remove', post)">Delete</base-button>
     </div>
 	</div>
@@ -20,7 +21,7 @@ const props = defineProps({
 });
 
 //events
-const emit = defineEmits(['remove']);
+const emit = defineEmits(['remove', 'edit']);
 </script>
 
 <style scoped>
